@@ -583,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: -7183055449463573942, guid: 4306b6e25a52e4b4f922c7ffd530132b, type: 3}
+  _spawnPoint: {fileID: 1185467286}
 --- !u!4 &1185467286
 Transform:
   m_ObjectHideFlags: 0

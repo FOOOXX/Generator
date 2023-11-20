@@ -5,11 +5,6 @@ public class Enemy : MonoBehaviour
     private Vector3 _direction;
     private float _speed;
 
-    public void GetDirection(Vector3 direction)
-    {
-        _direction = direction;
-    }
-
     private void Start()
     {
         _speed = GetRandomSpeed();
@@ -18,6 +13,11 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         Move();
+    }
+
+    public void GetDirection(Vector3 direction)
+    {
+        _direction = direction;
     }
 
     private void Move()
