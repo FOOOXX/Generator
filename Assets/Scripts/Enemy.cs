@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Vector3 _direction;
+    private Transform _target;
     private float _speed;
 
     private void Start()
@@ -12,24 +12,24 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        ToMove();
     }
 
-    public void GetDirection(Vector3 direction)
+    public void SetDirection(Transform target)
     {
-        _direction = direction;
+        _target = target;
     }
 
-    private void Move()
+    private void ToMove()
     {
-        transform.Translate(_speed * Time.deltaTime * _direction);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
     }
 
     private float GetRandomSpeed()
     {
-        float minSpeed = 2f;
-        float maxSpeed = 3f;
+        float minSpeed = 1f;
+        float maxSpeed = 1.3f;
 
-        return Random.Range( minSpeed, maxSpeed );
+        return Random.Range(minSpeed, maxSpeed);
     }
 }

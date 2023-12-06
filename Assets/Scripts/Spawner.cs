@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private Enemy[] _enemies;
+    [SerializeField] private GameObject[] _targets;
     [SerializeField] private Transform _spawnPoint;
 
     private Transform[] _points;
@@ -37,13 +38,11 @@ public class Spawner : MonoBehaviour
 
     private void CreateEnemy()
     {
-        Enemy enemy = Instantiate(_enemy, _points[Random.Range(0, _points.Length)].position, Quaternion.identity);
+        for (int i = 0; i < _points.Length; i++)
+        {
+            Enemy enemy = Instantiate(_enemies[i], _points[i].position, Quaternion.identity);
 
-        enemy.GetDirection(GetRandomDirection());
-    }
-
-    private Vector3 GetRandomDirection()
-    {
-        return new Vector3(Random.Range(-1f, 1f), 0, 0);
+            enemy.SetDirection(_targets[i].transform);
+        }
     }
 }
