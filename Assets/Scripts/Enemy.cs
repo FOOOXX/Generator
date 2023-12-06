@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        ToMove();
+        Move();
     }
 
     public void SetDirection(Transform target)
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         _target = target;
     }
 
-    private void ToMove()
+    private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
     }
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     private float GetRandomSpeed()
     {
         float minSpeed = 1f;
-        float maxSpeed = 1.3f;
+        float maxSpeed = 1.5f;
 
         return Random.Range(minSpeed, maxSpeed);
     }
