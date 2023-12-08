@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private Movement _enemy;
     [SerializeField] private Transform _target;
 
-    public Enemy GetEnemy()
+    public Movement GetEnemy()
     {
         return _enemy;
     }

@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private SpawnPoint[] _points;
+    [SerializeField] private List<SpawnPoint> _points;
 
     private WaitForSeconds _timer;
     private float _spawnTime;
@@ -29,9 +30,9 @@ public class Spawner : MonoBehaviour
 
     private void CreateEnemy()
     {
-        for (int i = 0; i < _points.Length; i++)
+        for (int i = 0; i < _points.Count; i++)
         {
-            Enemy enemy = Instantiate(_points[i].GetEnemy(), _points[i].transform.position, Quaternion.identity);
+            Movement enemy = Instantiate(_points[i].GetEnemy(), _points[i].transform.position, Quaternion.identity);
 
             enemy.SetDirection(_points[i].GetTarget());
         }
